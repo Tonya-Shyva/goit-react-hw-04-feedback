@@ -12,15 +12,15 @@ export function App() {
   const [bad, setBad] = useState(0);
 
   const clickHandler = option => {
-    // console.log(option);
-    if (option === 'Good') {
-      return setGood(good + 1);
-    } else if (option === 'Neutral') {
-      return setNeutral(neutral + 1);
-    } else if (option === 'Bad') {
-      return setBad(bad + 1);
-    } else {
-      return;
+    switch (option) {
+      case 'Good':
+        return setGood(prevGood => prevGood + 1);
+      case 'Neutral':
+        return setNeutral(prevNeutral => prevNeutral + 1);
+      case 'Bad':
+        return setBad(prevBad => prevBad + 1);
+      default:
+        return;
     }
   };
 
